@@ -1,7 +1,7 @@
 import DashboardNavbar from "@/components/dashboard-navbar";
 import { InfoIcon, UserCircle } from "lucide-react";
 import { redirect } from "next/navigation";
-import { createClient } from "../../../supabase/server";
+import { createClient } from "@/../../supabase/server";
 
 export default async function Dashboard() {
   const supabase = await createClient();
@@ -14,8 +14,16 @@ export default async function Dashboard() {
     return redirect("/sign-in");
   }
 
+  // Get user role from metadata and redirect accordingly
+  const role = user.user_metadata?.role || "buyer";
 
+  if (role === "seller") {
+    return redirect("/dashboard/seller");
+  } else {
+    return redirect("/dashboard/buyer");
+  }
 
+  // This code will not be reached due to the redirects above
   return (
     <>
       <DashboardNavbar />
@@ -26,7 +34,9 @@ export default async function Dashboard() {
             <h1 className="text-3xl font-bold">Dashboard</h1>
             <div className="bg-secondary/50 text-sm p-3 px-4 rounded-lg text-muted-foreground flex gap-2 items-center">
               <InfoIcon size="14" />
-              <span>This is a protected page only visible to authenticated users</span>
+              <span>
+                This is a protected page only visible to authenticated users
+              </span>
             </div>
           </header>
 

@@ -28,7 +28,9 @@ export default async function Signup(props: {
           <UrlProvider>
             <form className="flex flex-col space-y-6">
               <div className="space-y-2 text-center">
-                <h1 className="text-3xl font-semibold tracking-tight">Sign up</h1>
+                <h1 className="text-3xl font-semibold tracking-tight">
+                  Sign up
+                </h1>
                 <p className="text-sm text-muted-foreground">
                   Already have an account?{" "}
                   <Link
@@ -82,6 +84,24 @@ export default async function Signup(props: {
                     required
                     className="w-full"
                   />
+                </div>
+
+                <div className="space-y-2">
+                  <Label className="text-sm font-medium">Account Type</Label>
+                  <RadioGroup
+                    defaultValue={isSeller ? "seller" : "buyer"}
+                    name="role"
+                    className="flex gap-4"
+                  >
+                    <div className="flex items-center space-x-2">
+                      <RadioGroupItem value="buyer" id="buyer" />
+                      <Label htmlFor="buyer">Buyer</Label>
+                    </div>
+                    <div className="flex items-center space-x-2">
+                      <RadioGroupItem value="seller" id="seller" />
+                      <Label htmlFor="seller">Seller</Label>
+                    </div>
+                  </RadioGroup>
                 </div>
               </div>
 

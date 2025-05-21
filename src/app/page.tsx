@@ -335,14 +335,14 @@ export default async function Home() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/sign-up"
-              className="inline-flex items-center px-6 py-3 text-white bg-green-600 rounded-lg hover:bg-green-700 transition-colors shadow-md hover:shadow-lg"
+              className="inline-flex items-center px-6 py-3 text-white bg-primary rounded-lg hover:bg-primary/90 transition-colors shadow-md hover:shadow-lg"
             >
               Sign Up as Buyer
               <ArrowUpRight className="ml-2 w-4 h-4" />
             </Link>
             <Link
               href="/sign-up?seller=true"
-              className="inline-flex items-center px-6 py-3 text-green-600 bg-white border border-green-600 rounded-lg hover:bg-green-50 transition-colors shadow-md hover:shadow-lg"
+              className="inline-flex items-center px-6 py-3 text-primary bg-white border border-primary rounded-lg hover:bg-primary/5 transition-colors shadow-md hover:shadow-lg"
             >
               Register as Seller
               <ArrowUpRight className="ml-2 w-4 h-4" />

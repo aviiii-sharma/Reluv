@@ -25,11 +25,14 @@ const config = {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         primary: {
-          DEFAULT: "hsl(var(--primary))",
+          DEFAULT: "#E1306C" /* Instagram pink/red */,
           foreground: "hsl(var(--primary-foreground))",
+          light: "#F77737" /* Instagram orange */,
+          gradient:
+            "linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D, #F56040, #F77737, #FCAF45, #FFDC80)",
         },
         secondary: {
-          DEFAULT: "hsl(var(--secondary))",
+          DEFAULT: "#833AB4" /* Instagram purple */,
           foreground: "hsl(var(--secondary-foreground))",
         },
         destructive: {
@@ -41,7 +44,7 @@ const config = {
           foreground: "hsl(var(--muted-foreground))",
         },
         accent: {
-          DEFAULT: "hsl(var(--accent))",
+          DEFAULT: "#405DE6" /* Instagram blue */,
           foreground: "hsl(var(--accent-foreground))",
         },
         popover: {
@@ -51,6 +54,15 @@ const config = {
         card: {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
+        },
+        instagram: {
+          blue: "#405DE6",
+          purple: "#833AB4",
+          pink: "#C13584",
+          red: "#E1306C",
+          orange: "#F77737",
+          yellow: "#FCAF45",
+          lightyellow: "#FFDC80",
         },
       },
       borderRadius: {

@@ -3,7 +3,7 @@
 import { encodedRedirect } from "@/utils/utils";
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
-import { createClient } from "../../supabase/server";
+import { createClient } from "@/../../supabase/server";
 
 export const signUpAction = async (formData: FormData) => {
   const email = formData.get("email")?.toString();
@@ -57,7 +57,7 @@ export const signInAction = async (formData: FormData) => {
   const password = formData.get("password") as string;
   const supabase = await createClient();
 
-  const { error } = await supabase.auth.signInWithPassword({
+  const { error, data } = await supabase.auth.signInWithPassword({
     email,
     password,
   });
@@ -66,7 +66,15 @@ export const signInAction = async (formData: FormData) => {
     return encodedRedirect("error", "/sign-in", error.message);
   }
 
-  return redirect("/dashboard");
+  // Get user role from metadata
+  const role = data.user?.user_metadata?.role || "buyer";
+
+  // Redirect based on role
+  if (role === "seller") {
+    return redirect("/dashboard/seller");
+  } else {
+    return redirect("/dashboard/buyer");
+  }
 };
 
 export const forgotPasswordAction = async (formData: FormData) => {

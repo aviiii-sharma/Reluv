@@ -14,8 +14,12 @@ export default async function Navbar() {
   return (
     <nav className="w-full border-b border-gray-200 bg-white py-2">
       <div className="container mx-auto px-4 flex justify-between items-center">
-        <Link href="/" prefetch className="text-xl font-bold text-green-600">
-          Reluv
+        <Link
+          href="/"
+          prefetch
+          className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-instagram-blue via-instagram-pink to-instagram-orange"
+        >
+          ReLuv
         </Link>
         <div className="flex gap-4 items-center">
           {user ? (
