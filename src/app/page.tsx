@@ -322,31 +322,45 @@ export default async function Home() {
       </section>
 
       {/* Join CTA Section */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
             Join Our Thrift Community Today
           </h2>
           <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
             Whether you're looking to refresh your wardrobe or sell pre-loved
             items, our marketplace connects you with a community that values
-            sustainable fashion.
+            sustainable fashion and ethical consumption.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/sign-up"
-              className="inline-flex items-center px-6 py-3 text-white bg-green-600 rounded-lg hover:bg-green-700 transition-colors"
+              className="inline-flex items-center px-6 py-3 text-white bg-green-600 rounded-lg hover:bg-green-700 transition-colors shadow-md hover:shadow-lg"
             >
               Sign Up as Buyer
               <ArrowUpRight className="ml-2 w-4 h-4" />
             </Link>
             <Link
-              href="/sign-up"
-              className="inline-flex items-center px-6 py-3 text-green-600 bg-white border border-green-600 rounded-lg hover:bg-green-50 transition-colors"
+              href="/sign-up?seller=true"
+              className="inline-flex items-center px-6 py-3 text-green-600 bg-white border border-green-600 rounded-lg hover:bg-green-50 transition-colors shadow-md hover:shadow-lg"
             >
               Register as Seller
               <ArrowUpRight className="ml-2 w-4 h-4" />
             </Link>
+          </div>
+          <div className="mt-8 flex flex-wrap justify-center gap-6">
+            <div className="flex items-center">
+              <Zap className="h-5 w-5 text-green-500 mr-2" />
+              <span className="text-sm">Quick & Easy Sign-up</span>
+            </div>
+            <div className="flex items-center">
+              <CheckCircle2 className="h-5 w-5 text-green-500 mr-2" />
+              <span className="text-sm">Verified Sellers</span>
+            </div>
+            <div className="flex items-center">
+              <Tag className="h-5 w-5 text-green-500 mr-2" />
+              <span className="text-sm">Zero Commission</span>
+            </div>
           </div>
         </div>
       </section>

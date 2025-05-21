@@ -34,10 +34,11 @@ export default function Hero() {
               </Link>
 
               <Link
-                href="/sign-up"
+                href="/sign-up?seller=true"
                 className="inline-flex items-center px-8 py-4 text-gray-700 bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors text-lg font-medium"
               >
                 Sell Your Items
+                <ArrowUpRight className="ml-2 w-5 h-5" />
               </Link>
             </div>
 
