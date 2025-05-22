@@ -9,6 +9,13 @@ import {
   Users,
   Zap,
 } from "lucide-react";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 import { createClient } from "../../supabase/server";
 import Link from "next/link";
 import Image from "next/image";
@@ -135,42 +142,272 @@ export default async function Home() {
                 placeholder="Search for vintage tees, denim jackets, and more..."
               />
             </div>
+          </div>
+        </div>
+      </section>
 
-            <div className="mt-4 flex flex-wrap gap-2">
-              <span className="text-sm font-medium mr-2 text-gray-500">
-                Filter by:
+      {/* Categories Section */}
+      <section className="py-8 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-4 md:grid-cols-7 lg:grid-cols-14 gap-4">
+            <Link
+              href="/dashboard?category=hats"
+              className="flex flex-col items-center group"
+            >
+              <div className="w-16 h-16 flex items-center justify-center bg-gray-100 rounded-lg mb-2 group-hover:bg-gray-200 transition-colors">
+                <Image
+                  src="https://images.unsplash.com/photo-1576871337622-98d48d1cf531?w=200&q=80"
+                  width={40}
+                  height={40}
+                  alt="Hats & Caps"
+                  className="object-contain"
+                />
+              </div>
+              <span className="text-xs text-center font-medium">
+                HATS & CAPS
               </span>
-              <button className="px-3 py-1 text-sm bg-gray-100 hover:bg-gray-200 rounded-full">
-                Tops
-              </button>
-              <button className="px-3 py-1 text-sm bg-gray-100 hover:bg-gray-200 rounded-full">
-                Bottoms
-              </button>
-              <button className="px-3 py-1 text-sm bg-gray-100 hover:bg-gray-200 rounded-full">
-                Dresses
-              </button>
-              <button className="px-3 py-1 text-sm bg-gray-100 hover:bg-gray-200 rounded-full">
-                Outerwear
-              </button>
-              <button className="px-3 py-1 text-sm bg-gray-100 hover:bg-gray-200 rounded-full">
-                Accessories
-              </button>
-              <button className="px-3 py-1 text-sm bg-gray-100 hover:bg-gray-200 rounded-full">
-                Size: S
-              </button>
-              <button className="px-3 py-1 text-sm bg-gray-100 hover:bg-gray-200 rounded-full">
-                Size: M
-              </button>
-              <button className="px-3 py-1 text-sm bg-gray-100 hover:bg-gray-200 rounded-full">
-                Size: L
-              </button>
-              <button className="px-3 py-1 text-sm bg-gray-100 hover:bg-gray-200 rounded-full">
-                Under $25
-              </button>
-              <button className="px-3 py-1 text-sm bg-gray-100 hover:bg-gray-200 rounded-full">
-                $25-$50
-              </button>
-            </div>
+            </Link>
+
+            <Link
+              href="/dashboard?category=clothing"
+              className="flex flex-col items-center group"
+            >
+              <div className="w-16 h-16 flex items-center justify-center bg-gray-100 rounded-lg mb-2 group-hover:bg-gray-200 transition-colors">
+                <Image
+                  src="https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?w=200&q=80"
+                  width={40}
+                  height={40}
+                  alt="Clothing"
+                  className="object-contain"
+                />
+              </div>
+              <span className="text-xs text-center font-medium">CLOTHING</span>
+            </Link>
+
+            <Link
+              href="/dashboard?category=eyewear"
+              className="flex flex-col items-center group"
+            >
+              <div className="w-16 h-16 flex items-center justify-center bg-gray-100 rounded-lg mb-2 group-hover:bg-gray-200 transition-colors">
+                <Image
+                  src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=200&q=80"
+                  width={40}
+                  height={40}
+                  alt="Eyewear"
+                  className="object-contain"
+                />
+              </div>
+              <span className="text-xs text-center font-medium">EYEWEAR</span>
+            </Link>
+
+            <Link
+              href="/dashboard?category=accessories"
+              className="flex flex-col items-center group"
+            >
+              <div className="w-16 h-16 flex items-center justify-center bg-gray-100 rounded-lg mb-2 group-hover:bg-gray-200 transition-colors">
+                <Image
+                  src="https://images.unsplash.com/photo-1631160299919-6a175aa6d189?w=200&q=80"
+                  width={40}
+                  height={40}
+                  alt="Accessories"
+                  className="object-contain"
+                />
+              </div>
+              <span className="text-xs text-center font-medium">
+                ACCESSORIES
+              </span>
+            </Link>
+
+            <Link
+              href="/dashboard?category=hoodies"
+              className="flex flex-col items-center group"
+            >
+              <div className="w-16 h-16 flex items-center justify-center bg-gray-100 rounded-lg mb-2 group-hover:bg-gray-200 transition-colors">
+                <Image
+                  src="https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?w=200&q=80"
+                  width={40}
+                  height={40}
+                  alt="Hoodies"
+                  className="object-contain"
+                />
+              </div>
+              <span className="text-xs text-center font-medium">HOODIES</span>
+            </Link>
+
+            <Link
+              href="/dashboard?category=tshirts"
+              className="flex flex-col items-center group"
+            >
+              <div className="w-16 h-16 flex items-center justify-center bg-gray-100 rounded-lg mb-2 group-hover:bg-gray-200 transition-colors">
+                <Image
+                  src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=200&q=80"
+                  width={40}
+                  height={40}
+                  alt="T-Shirts"
+                  className="object-contain"
+                />
+              </div>
+              <span className="text-xs text-center font-medium">TSHIRTS</span>
+            </Link>
+
+            <Link
+              href="/dashboard?category=shirts"
+              className="flex flex-col items-center group"
+            >
+              <div className="w-16 h-16 flex items-center justify-center bg-gray-100 rounded-lg mb-2 group-hover:bg-gray-200 transition-colors">
+                <Image
+                  src="https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=200&q=80"
+                  width={40}
+                  height={40}
+                  alt="Shirts"
+                  className="object-contain"
+                />
+              </div>
+              <span className="text-xs text-center font-medium">SHIRTS</span>
+            </Link>
+
+            <Link
+              href="/dashboard?category=bottoms"
+              className="flex flex-col items-center group"
+            >
+              <div className="w-16 h-16 flex items-center justify-center bg-gray-100 rounded-lg mb-2 group-hover:bg-gray-200 transition-colors">
+                <Image
+                  src="https://images.unsplash.com/photo-1542272604-787c3835535d?w=200&q=80"
+                  width={40}
+                  height={40}
+                  alt="All Bottoms"
+                  className="object-contain"
+                />
+              </div>
+              <span className="text-xs text-center font-medium">
+                ALL BOTTOMS
+              </span>
+            </Link>
+
+            <Link
+              href="/dashboard?category=wallets"
+              className="flex flex-col items-center group"
+            >
+              <div className="w-16 h-16 flex items-center justify-center bg-gray-100 rounded-lg mb-2 group-hover:bg-gray-200 transition-colors">
+                <Image
+                  src="https://images.unsplash.com/photo-1627123424574-724758594e93?w=200&q=80"
+                  width={40}
+                  height={40}
+                  alt="Wallets"
+                  className="object-contain"
+                />
+              </div>
+              <span className="text-xs text-center font-medium">WALLETS</span>
+            </Link>
+
+            <Link
+              href="/dashboard?category=backpack"
+              className="flex flex-col items-center group"
+            >
+              <div className="w-16 h-16 flex items-center justify-center bg-gray-100 rounded-lg mb-2 group-hover:bg-gray-200 transition-colors">
+                <Image
+                  src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=200&q=80"
+                  width={40}
+                  height={40}
+                  alt="Backpack"
+                  className="object-contain"
+                />
+              </div>
+              <span className="text-xs text-center font-medium">BACKPACK</span>
+            </Link>
+
+            <Link
+              href="/dashboard?category=skateboards"
+              className="flex flex-col items-center group"
+            >
+              <div className="w-16 h-16 flex items-center justify-center bg-gray-100 rounded-lg mb-2 group-hover:bg-gray-200 transition-colors">
+                <Image
+                  src="https://images.unsplash.com/photo-1547447134-cd3f5c716030?w=200&q=80"
+                  width={40}
+                  height={40}
+                  alt="Skateboards"
+                  className="object-contain"
+                />
+              </div>
+              <span className="text-xs text-center font-medium">
+                SKATEBOARDS
+              </span>
+            </Link>
+
+            <Link
+              href="/dashboard?category=socks"
+              className="flex flex-col items-center group"
+            >
+              <div className="w-16 h-16 flex items-center justify-center bg-gray-100 rounded-lg mb-2 group-hover:bg-gray-200 transition-colors">
+                <Image
+                  src="https://images.unsplash.com/photo-1586350977771-b3b0abd50c82?w=200&q=80"
+                  width={40}
+                  height={40}
+                  alt="Socks"
+                  className="object-contain"
+                />
+              </div>
+              <span className="text-xs text-center font-medium">SOCKS</span>
+            </Link>
+
+            <Link
+              href="/dashboard?category=boxers"
+              className="flex flex-col items-center group"
+            >
+              <div className="w-16 h-16 flex items-center justify-center bg-gray-100 rounded-lg mb-2 group-hover:bg-gray-200 transition-colors">
+                <Image
+                  src="https://images.unsplash.com/photo-1596609548086-85bbf8ddb6b9?w=200&q=80"
+                  width={40}
+                  height={40}
+                  alt="Boxers"
+                  className="object-contain"
+                />
+              </div>
+              <span className="text-xs text-center font-medium">BOXERS</span>
+            </Link>
+
+            <Link
+              href="/dashboard?category=collabs"
+              className="flex flex-col items-center group"
+            >
+              <div className="w-16 h-16 flex items-center justify-center bg-gray-100 rounded-lg mb-2 group-hover:bg-gray-200 transition-colors">
+                <Image
+                  src="https://images.unsplash.com/photo-1607082349566-187342175e2f?w=200&q=80"
+                  width={40}
+                  height={40}
+                  alt="Collabs"
+                  className="object-contain"
+                />
+              </div>
+              <span className="text-xs text-center font-medium">COLLABS</span>
+            </Link>
+          </div>
+
+          <div className="flex flex-wrap gap-2 justify-center mt-8">
+            <Link
+              href="/dashboard?category=new"
+              className="px-4 py-2 text-sm bg-black text-white rounded-md hover:bg-gray-800 transition-colors"
+            >
+              NEW ARRIVALS
+            </Link>
+            <Link
+              href="/dashboard?category=hats"
+              className="px-4 py-2 text-sm border border-gray-300 rounded-md hover:bg-gray-100 transition-colors"
+            >
+              HATS & CAPS
+            </Link>
+            <Link
+              href="/dashboard?category=royal"
+              className="px-4 py-2 text-sm border border-gray-300 rounded-md hover:bg-gray-100 transition-colors"
+            >
+              ROYAL ENFIELD X UM
+            </Link>
+            <Link
+              href="/dashboard?category=mtv"
+              className="px-4 py-2 text-sm border border-gray-300 rounded-md hover:bg-gray-100 transition-colors"
+            >
+              MTV X UM
+            </Link>
           </div>
         </div>
       </section>
